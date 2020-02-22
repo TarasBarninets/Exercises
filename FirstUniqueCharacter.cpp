@@ -7,20 +7,18 @@ int main()
 {
 	string str;
 
-	cout << " Enter string that contain only lowercase letters : ";
+	cout << "Enter string that contain only lowercase letters : ";
 	cin >> str;
 
-	int length = str.length();
-
-	unordered_map<char, size_t> characterQuantity;
+	const int length = str.length();
+	unordered_map<char, size_t> characterCount;
 
 	for (int i = 0; i < length; i++)
 	{
-		auto it = characterQuantity.find(str[i]);
-
-		if (it == characterQuantity.end())
+		auto it = characterCount.find(str[i]);
+		if (it == characterCount.end())
 		{
-			characterQuantity.insert({ str[i], 1 });
+			characterCount.insert({ str[i], 1 });
 		}
 		else
 		{
@@ -28,17 +26,16 @@ int main()
 		}
 	}
 
-	cout << "CHARACTER \t FREQUENCY \n";
-	for (auto itr = characterQuantity.begin(); itr != characterQuantity.end(); ++itr)
+	cout << "CHARACTER \t COUNT \n";
+	for (auto itr = characterCount.begin(); itr != characterCount.end(); ++itr)
 	{
-		cout << itr->first << '\t' << '\t' << itr->second << '\n';
+		cout << itr->first << "\t \t" << itr->second << '\n';
 	}
 
 	int index = -1;
-
 	for (int i = 0; i < length; i++)
 	{
-		auto it = characterQuantity.find(str[i]);
+		auto it = characterCount.find(str[i]);
 		if (it->second == 1)
 		{
 			index = i;
@@ -48,5 +45,7 @@ int main()
 	}
 
 	if (index == -1)
+	{
 		cout << "Doesn't exist non-repeating character " << index << endl;
+	}
 }
