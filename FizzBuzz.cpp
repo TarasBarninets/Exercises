@@ -34,14 +34,14 @@ int main()
 		{
 			strVector.push_back(str2);
 		}
-        else
-        {
+        	else
+        	{
 		    strVector.push_back(to_string(i));
-        }
+        	}
 	}
 
 	for (auto itr : strVector)
-    {
-        cout << itr << endl;
-    }
+    	{
+        	cout << itr << endl;
+    	}
 }
