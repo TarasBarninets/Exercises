@@ -1,3 +1,6 @@
+/*Description: Given an array with n integers, your task is to check if it could become non-decreasing by modifying at most 1 element.
+We define an array is non-decreasing if array[i] <= array[i + 1] holds for every i (1 <= i < n).*/
+
 #include<iostream>
 #include<vector>
 
@@ -13,20 +16,20 @@ int main()
 	{
 		nums.push_back(input);
 	}
-		
+
 	cout << endl << "Vector : ";
 	for (auto it : nums)
 	{
 		cout << it << " ";
 	}
-	
-	bool result = false;
+
 	int modifyingCount = 0;
 	const int size = nums.size();
 
 	if (size == 1)
 	{
-		result = true;
+		cout << endl << "Array with " << size << " integers, could become non-decreasing by modifying at most 1 element" << endl;
+		return 0;
 	}
 
 	for (int i = 0; i < size - 1; i++)
@@ -50,30 +53,16 @@ int main()
 		}
 		if (modifyingCount > 1)
 		{
-			result = false;
-		}
-	}
-
-	// check if the sequence is in non-decreasing order : array[i] <= array[i + 1]
-	for (int i = 0; i < size - 1; i++)
-	{
-		if (nums[i] > nums[i + 1])
-		{
 			break;
 		}
 	}
 
-	if (!result)
+	if (modifyingCount > 1)
 	{
-		result = true;
-	}
-
-	if (result)
-	{
-		cout << endl << "Array with " << size << " integers, could become non-decreasing by modifying at most 1 element" << endl;
+		cout << endl << "Array with " << size << " integers, could not become non-decreasing by modifying at most 1 element" << endl;
 	}
 	else
 	{
-		cout << endl << "Array with " << size << " integers, could not become non-decreasing by modifying at most 1 element" << endl;
+		cout << endl << "Array with " << size << " integers, could become non-decreasing by modifying at most 1 element" << endl;
 	}
 }
